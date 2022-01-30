@@ -1,0 +1,24 @@
+<%- include('includes/head.ejs') %>
+
+<body>
+    <%- include('includes/navigation.ejs') %>
+
+    <main>
+        <% if(prods.length > 0) { %>
+            <div class="grid">
+                <% for(let product in prods) {%>
+                    <article class="card product-item">
+                        <header class="card__header">
+                            <h1 class="product__title">Great Book</h1>
+                        </header>
+                        <div class="card__image">
+                            <img src="https://thewritelife.com/wp-content/uploads/2019/08/How-to-format-a-book.jpg.webp",
+                                alt="a book">
+                        </div>
+                    </article>
+                <% } %>
+            </div>
+        <% } else { %>
+            <h1>No Products Found</h1>
+        <% } %>
+<%- include('includes/end.ejs') %>
