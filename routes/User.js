@@ -2,9 +2,11 @@ const path = require('path');
 
 const express = require('express');
 
-const shopController = require('../controllers/shop');
-
 const router = express.Router();
+
+const userController = require('../controllers/user');
+
+/*const shopController = require('../controllers/shop');
 
 router.get('/', shopController.getIndex);
 
@@ -20,6 +22,9 @@ router.post('/cart-delete-item', shopController.postCartDeleteProduct);
 
 router.get('/orders', shopController.getOrders);
 
-router.get('/checkout', shopController.getCheckout);
+router.get('/checkout', shopController.getCheckout);*/
+
+router.post('/login', userController.userlogin);
+router.post('/logout', userController.userlogout);
 
 module.exports = router;

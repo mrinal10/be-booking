@@ -1,4 +1,13 @@
-const Product = require('../models/product');
+const admin = require('../components/admin');
+
+exports.addRoom = (req, res, next) => {
+  admin.addroom(req);
+  res.send("added successfully");
+};
+
+
+
+/*const Product = require('../models/product');
 
 exports.getAddProduct = (req, res, next) => {
   res.render('admin/edit-product', {
@@ -72,4 +81,4 @@ exports.postDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
   Product.deleteById(prodId);
   res.redirect('/admin/products');
-};
+};*/
