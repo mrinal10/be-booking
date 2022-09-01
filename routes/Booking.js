@@ -24,4 +24,6 @@ const bookingController = require('../controllers/booking');
 
 router.post('/room', bookingController.booking);
 
+router.get('/view-rooms', bookingController.rooms);
+
 module.exports = router;
