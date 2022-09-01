@@ -32,8 +32,6 @@ app.get('/ads', (req, res) => {
 const errorController = require('./controllers/error');
 const documentdb = require('./util/database');
 
-
-
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 

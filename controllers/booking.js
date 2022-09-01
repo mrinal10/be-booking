@@ -1,10 +1,27 @@
-const roomBooking = require('../components/bookroom');
+const roomBooking = require('../components/room');
 
 exports.booking = (req, res, next) => {
-    let bookingResponse = roomBooking.bookroom(req);
-   
-    if ( bookingResponse instanceof Error ) {
+    
+
+    roomBooking.bookroom(req).then( bookingResponse  => {
+        console.log(bookingResponse);
+        res.send("booked successfully");
+    }).catch(err => {
+        console.log(err);
         res.send("booking failed");
-    }
-    res.send("booked successfully");
+    });
+    
+    
+};
+
+exports.rooms = (req, res) => {
+    roomBooking.getrooms().then( roomResponse  => {
+        console.log(roomResponse);
+        res.send(roomResponse);
+    }).catch(err => {
+        console.log(err);
+        res.send("get rooms failed");
+    });
+    
+    
 };

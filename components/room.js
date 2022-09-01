@@ -1,4 +1,6 @@
 const Booking = require('../models/mongo/Booking');
+const Room = require('../models/mongo/Room');
+
 const mongoose = require('mongoose');
 
 mongoose.connect("mongodb://localhost:27017/booking")
@@ -36,3 +38,14 @@ exports.bookroom = (req) => {
 
     return "booked successfully";
 };
+
+exports.getrooms = () => {
+    Room.find(({isActive:true}, function(err, room) {
+        if(err) {
+            return "failed";
+        } else {
+            console.log("room {}",room);
+        }
+        return room;
+    }));
+}
